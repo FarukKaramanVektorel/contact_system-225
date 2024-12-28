@@ -14,7 +14,6 @@ const DataTable = ({ data, columns, actions }) => {
       console.log("actions",actions);
       console.log("columns",columns);
       console.log("data",data);
-    
      
     })
     

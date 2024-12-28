@@ -12,6 +12,15 @@ export const getAllContacts = async () => {
         throw error;
     }
 }
+export const getContactById = async (id) => {
+    try {
+        const response = await axiosInstance.get(`/contacts/${id}`);
+        return response.data;
+    } catch (error) {
+        console.error("Kişi detayları alınamadı:", error);
+        throw error;
+    }
+};
 
 export const getContactsByCategory = async (categoryId) => {
     try {
