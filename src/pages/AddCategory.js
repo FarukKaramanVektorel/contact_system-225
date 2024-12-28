@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { createCategory } from "../services/categoryService";
 import { Alert, Button, Container, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import {createCategory} from "../services/categoryService";
 //rafce
 
 const AddCategory = () => {

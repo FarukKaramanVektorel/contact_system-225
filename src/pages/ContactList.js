@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { deleteContact, getAllContacts } from "../services/contactService";
+
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons/faPlusCircle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import DataTable from "../components/DataTable";
+import {contactService, deleteContact, getAllContacts} from "../services/contactService";
 
 const ContactList = () => {
   const [contacts, setContacts] = useState([]);
   const navigate = useNavigate();
   const fetchContacts = async () => {
-    const data = await getAllContacts();
+    const data = await getAllContacts()
     setContacts(data);
   };
   useEffect(() => {
@@ -19,7 +20,7 @@ const ContactList = () => {
   }, []);
   const handleDelete = async (id) => {
     if (window.confirm("Kişi silinecek, eminmisiniz?")) {
-      await deleteContact(id);
+      await deleteContact(id)
       fetchContacts();
     }
   }

@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { getContactsByCategory } from '../services/contactService';
+
 import { Container, Table } from 'react-bootstrap';
+import { getContactsByCategory} from "../services/contactService";
 
 const CategoryDetails = () => {
     const { categoryId } = useParams();

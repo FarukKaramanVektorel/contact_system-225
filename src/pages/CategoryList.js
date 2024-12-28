@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { deleteCategory, getAllCategories } from "../services/categoryService";
+
 import { Button, Col, Container, Row } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {  faBarsProgress, faCircleXmark } from '@fortawesome/free-solid-svg-icons'
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons/faPlusCircle";
 import DataTable from "../components/DataTable";
+
+import {deleteCategory, getAllCategories} from "../services/categoryService";
 const CategoryList = () => {
   const [categories, setCategories] = useState([]);
   const navigate = useNavigate();
@@ -21,7 +23,7 @@ const CategoryList = () => {
 
   const handleDelete = async (id) => {
     if (window.confirm("Kategori silinecek, eminmisiniz?")) {
-      await deleteCategory(id);
+      await deleteCategory(id)
       fetchCategories();
     }
 

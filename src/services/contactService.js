@@ -1,24 +1,44 @@
-import axios from "axios"
+// src/services/contactService.js
+import axiosInstance from './axiosInstance';
 
-const API_URL = "http://localhost:9999/contacts"
+const API_URL = "/contacts";
 
 export const getAllContacts = async () => {
-    const response = await axios.get(API_URL)
-    return response.data;
+    try {
+        const response = await axiosInstance.get(API_URL);
+        return response.data;
+    } catch (error) {
+        console.error('Kişi listesi alınamadı:', error);
+        throw error;
+    }
 }
 
 export const getContactsByCategory = async (categoryId) => {
-    const response = await axios.get(`${API_URL}/cat/${categoryId}`)
-    return response.data;
+    try {
+        const response = await axiosInstance.get(`${API_URL}/cat/${categoryId}`);
+        return response.data;
+    } catch (error) {
+        console.error('Kategoriye göre kişiler alınamadı:', error);
+        throw error;
+    }
 }
 
 export const createContact = async (contact) => {
-    const response = await axios.post(`${API_URL}/add`, contact)
-    return response.data
+    try {
+        const response = await axiosInstance.post(`${API_URL}/add`, contact);
+        return response.data;
+    } catch (error) {
+        console.error('Kişi oluşturulamadı:', error);
+        throw error;
+    }
 }
 
 export const deleteContact = async (id) => {
-    const response = await axios.delete(`${API_URL}/${id}`)
-    return response.data
+    try {
+        const response = await axiosInstance.delete(`${API_URL}/${id}`);
+        return response.data;
+    } catch (error) {
+        console.error('Kişi silinemedi:', error);
+        throw error;
+    }
 }
-

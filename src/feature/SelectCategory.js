@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Form } from "react-bootstrap";
-import { getAllCategories } from "../services/categoryService";
+import {getAllCategories} from "../services/categoryService";
+
 const SelectCategory = ({ value, setData }) => {
   const [categories, setCategories] = useState([]);
   useEffect(() => {

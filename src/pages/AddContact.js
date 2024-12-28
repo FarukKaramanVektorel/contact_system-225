@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Alert, Button, Col, Container, Form, Row } from "react-bootstrap";
 import SelectCategory from "../feature/SelectCategory";
-import { createContact } from "../services/contactService";
+import {contactService, createContact} from "../services/contactService";
+
 const initialState = {
   "name": "",
   "lastname": "",
@@ -22,9 +23,7 @@ const AddContact = () => {
   const [data, setData] = useState(initialState)
   const [saved, setSaved] = useState(null)
   const [gender, setGender] = useState(null)
-  useEffect(() => {
-    console.log(data);
-  }, [data])
+
   useEffect(() => {
     setData(prevData => ({
       ...prevData,

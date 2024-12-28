@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { getAllContacts } from '../services/contactService';
-import { getAllCategories } from '../services/categoryService';
+
 import { Button, Card, Col, Container, ProgressBar, Row } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import {getAllContacts} from "../services/contactService";
+import {getAllCategories} from "../services/categoryService";
+
 const Home = () => {
     const [contacts, setContacts] = useState([]);
     const [categories, setCategories] = useState([]);
