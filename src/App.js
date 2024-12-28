@@ -7,6 +7,8 @@ import AddContact from "./pages/AddContact";
 import CategoryDetails from "./pages/CategoryDetails";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
+import EventList from "./pages/EventList";
+import AddEvent from "./pages/AddEvent";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
           <Route path="/contacts" element={<ContactList />} />
           <Route path="/add_contacts" element={<AddContact />} />
           <Route path="/category/:categoryId" element={<CategoryDetails />} />
+          <Route path="/events" element={<EventList />} />
+          <Route path="/add_event" element={<AddEvent />} />
         </Routes>
         <Footer/>
       </Router>

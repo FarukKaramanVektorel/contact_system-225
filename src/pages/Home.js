@@ -43,6 +43,9 @@ const Home = () => {
     const handleContactClick = () => {
         navigate("/contacts")
     }
+    const handleEventClick = () => {
+        navigate("/events"); 
+    }
 
     return (
         <Container className="my-4">
@@ -79,18 +82,27 @@ const Home = () => {
                 </Card></Col>
 
 
-                <Col><Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src="img/event.png" style={cardImageStyle} />
-                    <Card.Body>
-                        <Card.Title>Etkinlikler</Card.Title>
-                        <Card.Text>
-                            Toplam {contacts.length} Etkinlik bulunmaktdır. Etkinlikler bla bla bla
-                        </Card.Text>
-                        <div className='my-4'><ProgressBar variant="warning" animated now={contactLimit} /></div>
-                        <div><Button variant="primary" onClick={handleContactClick}>Etkinlik Listesi</Button></div>
-
-                    </Card.Body>
-                </Card></Col>
+                <Col>
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Img variant="top" src="img/event.png" style={cardImageStyle} />
+                        <Card.Body>
+                            <Card.Title>Etkinlikler</Card.Title>
+                            <Card.Text>
+                                Toplam {contacts.length} Etkinlik bulunmaktdır. Etkinlikler bla bla bla
+                            </Card.Text>
+                            <div className='my-4'>
+                                <ProgressBar variant="warning" animated now={contactLimit} />
+                            </div>
+                            <div>
+                                <Button
+                                    variant="primary"
+                                    onClick={handleEventClick}>
+                                    Etkinlik Listesi
+                                </Button>
+                            </div>
+                        </Card.Body>
+                    </Card>
+                </Col>
 
             </Row>
 
