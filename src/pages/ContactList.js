@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
 import { faCircleXmark } from "@fortawesome/free-solid-svg-icons";
 import DataTable from "../components/DataTable";
-import {contactService, deleteContact, getAllContacts} from "../services/contactService";
+import { deleteContact, getAllContacts} from "../services/contactService";
 
 const ContactList = () => {
   const [contacts, setContacts] = useState([]);

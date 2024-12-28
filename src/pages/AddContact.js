@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Alert, Button, Col, Container, Form, Row } from "react-bootstrap";
 import SelectCategory from "../feature/SelectCategory";
-import {contactService, createContact} from "../services/contactService";
+import { createContact} from "../services/contactService";
 
 const initialState = {
   "name": "",
