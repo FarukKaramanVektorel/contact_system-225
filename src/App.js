@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import NavigationBar from "./components/NavigationBar";
 import CategoryList from "./pages/CategoryList";
 import AddCategory from "./pages/AddCategory";
@@ -10,26 +10,100 @@ import Footer from "./components/Footer";
 import EventList from "./pages/EventList";
 import AddEvent from "./pages/AddEvent";
 import ContactDetails from "./pages/ContactDetails";
+import Login from "./pages/Login"; // Login sayfasını ekliyoruz
+
+// PrivateRoute bileşeni
+const PrivateRoute = ({ children }) => {
+  const token = localStorage.getItem("token"); // Token kontrolü
+  return token ? children : <Navigate to="/login" />; // Token yoksa login sayfasına yönlendir
+};
 
 function App() {
   return (
     <>
       <Router>
-        <NavigationBar/>
+        <NavigationBar />
         <main>
           <Routes>
-            <Route path="/" element={<Home/>}/>
-            <Route path="/categories" element={<CategoryList/>}/>
-            <Route path="/add_category" element={<AddCategory/>}/>
-            <Route path="/contacts" element={<ContactList/>}/>
-            <Route path="/add_contacts" element={<AddContact/>}/>
-            <Route path="/category/:categoryId" element={<CategoryDetails/>}/>
-            <Route path="/events" element={<EventList/>}/>
-            <Route path="/add_event" element={<AddEvent/>}/>
-            <Route path="/contact/:id" element={<ContactDetails/>}/>
+            {/* Login sayfası */}
+            <Route path="/login" element={<Login />} />
+
+            {/* Korumalı rotalar */}
+            <Route
+              path="/"
+              element={
+                <PrivateRoute>
+                  <Home />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/categories"
+              element={
+                <PrivateRoute>
+                  <CategoryList />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/add_category"
+              element={
+                <PrivateRoute>
+                  <AddCategory />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/contacts"
+              element={
+                <PrivateRoute>
+                  <ContactList />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/add_contacts"
+              element={
+                <PrivateRoute>
+                  <AddContact />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/category/:categoryId"
+              element={
+                <PrivateRoute>
+                  <CategoryDetails />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/events"
+              element={
+                <PrivateRoute>
+                  <EventList />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/add_event"
+              element={
+                <PrivateRoute>
+                  <AddEvent />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/contact/:id"
+              element={
+                <PrivateRoute>
+                  <ContactDetails />
+                </PrivateRoute>
+              }
+            />
           </Routes>
         </main>
-            <Footer/>
+        <Footer />
       </Router>
     </>
   );
